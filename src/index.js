@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
+import "./Game.css";
+import Footer from "./Footer";
+import reportWebVitals from "./reportWebVitals";
 
 function Square(props) {
   return (
@@ -123,6 +127,11 @@ function calculateWinner(squares) {
   }
   return null;
 }
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Game />);
+root.render(
+  <div className="container">
+    <Game />
+    <Footer />
+  </div>
+);
+reportWebVitals();
