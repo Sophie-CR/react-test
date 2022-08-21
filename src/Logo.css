@@ -1,0 +1,13 @@
+.logo-container {
+  margin-top: 12px;
+  margin-bottom: 40px;
+}
+
+.sr-logo {
+  border-radius: 100px;
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 350px;
+}

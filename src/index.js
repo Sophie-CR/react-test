@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import "./Game.css";
+import Logo from "./Logo";
+import Description from "./Description";
 import Footer from "./Footer";
-import reportWebVitals from "./reportWebVitals";
 
 function Square(props) {
   return (
@@ -81,7 +83,9 @@ class Game extends React.Component {
       const desc = move ? "Go to move #" + move : "Go to game start";
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button className="button" onClick={() => this.jumpTo(move)}>
+            {desc}
+          </button>
         </li>
       );
     });
@@ -100,7 +104,7 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">
-          <div>{status}</div>
+          <div className="status">{status}</div>
           <ol>{moves}</ol>
         </div>
       </div>
@@ -130,7 +134,15 @@ function calculateWinner(squares) {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <div className="container">
-    <Game />
+    <Logo />
+    <div className="row">
+      <div className="col-md-6">
+        <Game />
+      </div>
+      <div className="col-md-6">
+        <Description />
+      </div>
+    </div>
     <Footer />
   </div>
 );

@@ -11,7 +11,7 @@ export default function Footer() {
               <i className="fa-brands fa-github"></i>{" "}
             </span>
             <a
-              href="https://github.com/Sophie-CR/react-dictionary-app"
+              href="https://github.com/Sophie-CR/react-tutorial"
               target="_blank"
               rel="noreferrer"
               className="footer-link"
