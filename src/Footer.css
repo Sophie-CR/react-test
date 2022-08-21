@@ -3,7 +3,10 @@
   border-radius: var(--radius);
   font-size: 12pt;
   margin: 15px 0px;
-  padding: 15px 5px;
+  padding: 15px 0px;
+}
+.footer-links {
+  margin: 5px 0px 0px 12px;
 }
 .react-logo {
   font-size: 39pt;

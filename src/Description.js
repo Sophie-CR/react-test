@@ -5,8 +5,8 @@ export default function Description() {
   return (
     <div className="description">
       <p>
-        I built this simple game by following the tutorial on the reactjs.org
-        website.
+        I built this simple game of noughts and crosses by following the
+        tutorial on the reactjs.org website. Give it a try!
       </p>
       <p>
         <a
