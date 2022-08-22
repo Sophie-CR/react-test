@@ -30,6 +30,52 @@ a:hover {
 .button:focus {
   background-color: var(--background-color);
 }
+ol,
+ul {
+  padding-left: 30px;
+}
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.status {
+  font-size: 14pt;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.square {
+  background-color: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+.square:focus {
+  outline: none;
+}
+.winning-square {
+  background-color: var(--blue);
+  font-weight: bolder;
+}
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+.game {
+  display: flex;
+  flex-direction: row;
+}
+.game-info {
+  margin-left: 20px;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1000px;
