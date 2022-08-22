@@ -75,7 +75,9 @@ ul {
 .game-info {
   margin-left: 20px;
 }
-
+.currently-selected {
+  font-weight: bold;
+}
 @media (min-width: 1200px) {
   .container {
     max-width: 1000px;
