@@ -30,10 +30,6 @@ a:hover {
 .button:focus {
   background-color: var(--background-color);
 }
-.game {
-  display: block;
-  margin: 0 auto;
-}
 ol,
 ul {
   padding-left: 30px;
@@ -45,8 +41,8 @@ ul {
 }
 .status {
   font-size: 14pt;
-  margin-bottom: 10px;
-  text-align: center;
+  margin: 10px 0px;
+  padding-left: 5%;
 }
 .square {
   background-color: #fff;
@@ -87,9 +83,16 @@ ul {
   font-weight: bold;
 }
 @media (max-width: 576px) {
+  .game-board {
+    margin-left: 30%;
+  }
+  .game-info {
+    margin-top: 10px;
+  }
   .move-button,
   .toggle-button {
-    max-width: 180px;
+    font-size: 10pt;
+    max-width: 90%;
   }
 }
 @media (min-width: 1200px) {

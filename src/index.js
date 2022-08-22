@@ -43,7 +43,7 @@ class Board extends React.Component {
         </div>
       );
     }
-    return <div>{allSquares}</div>;
+    return <div className="game-board">{allSquares}</div>;
   }
 }
 
@@ -123,18 +123,20 @@ class Game extends React.Component {
       </button>
     );
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board
-            squares={current.squares}
-            winnerCells={winnerCells}
-            onClick={(i) => this.handleClick(i)}
-          />
-        </div>
-        <div className="game-info">
-          <div className="status">{status}</div>
-          <div>{toggleButton}</div>
-          <ol>{moves}</ol>
+      <div className="container">
+        <div className="row game">
+          <div className="col-sm-5">
+            <Board
+              squares={current.squares}
+              winnerCells={winnerCells}
+              onClick={(i) => this.handleClick(i)}
+            />
+          </div>
+          <div className="col-sm-6 game-info">
+            <div className="status">{status}</div>
+            <div>{toggleButton}</div>
+            <ol>{moves}</ol>
+          </div>
         </div>
       </div>
     );
@@ -170,10 +172,10 @@ root.render(
     <Logo />
     <div className="row">
       <div className="col-lg-6">
-        <Game />
+        <Description />
       </div>
       <div className="col-lg-6">
-        <Description />
+        <Game />
       </div>
     </div>
     <Footer />
