@@ -24,8 +24,8 @@ class Board extends React.Component {
       <Square
         value={this.props.squares[i]}
         onClick={() => this.props.onClick(i)}
-        check={this.props.winnerCells}
         changeClass={changeClass}
+        key={"sq_" + i}
       />
     );
   }
@@ -119,7 +119,7 @@ class Game extends React.Component {
         className="button toggle-button"
         onClick={() => this.toggleOrder()}
       >
-        Toggle moves order to {oppOrder}
+        Toggle moves to {oppOrder} order
       </button>
     );
     return (
@@ -152,16 +152,17 @@ function calculateWinner(squares) {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
-    }
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c])
+      return [squares[a], a, b, c];
   }
+
   for (let i = 0; i < 9; i++) {
     if (squares[i] === null) return null;
   }
-  return ["Draw"];
+  return ["Draw", null];
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
