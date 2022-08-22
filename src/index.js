@@ -54,6 +54,7 @@ class Game extends React.Component {
       history: [{ squares: Array(9).fill(null), clicked: null }],
       xIsNext: true,
       stepNumber: 0,
+      movesAscending: true,
     };
   }
   handleClick(i) {
@@ -73,13 +74,16 @@ class Game extends React.Component {
   jumpTo(step) {
     this.setState({ stepNumber: step, xIsNext: step % 2 === 0 });
   }
+  toggleOrder() {
+    this.setState({ movesAscending: !this.state.movesAscending });
+  }
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winnerInfo = calculateWinner(current.squares);
     const winner = winnerInfo ? winnerInfo[0] : winnerInfo;
     const winnerCells = winnerInfo ? winnerInfo.slice(1) : winnerInfo;
-    const moves = history.map((step, move) => {
+    let moves = history.map((step, move) => {
       const desc = move
         ? "Go to move #" +
           move +
@@ -89,7 +93,9 @@ class Game extends React.Component {
           (Math.floor(step.clicked / 3) + 1)
         : "Go to game start";
       const buttonClasses =
-        move === this.state.stepNumber ? "currently-selected button" : "button";
+        move === this.state.stepNumber
+          ? "button move-button currently-selected"
+          : "button move-button";
       return (
         <li key={move}>
           <button className={buttonClasses} onClick={() => this.jumpTo(move)}>
@@ -98,12 +104,24 @@ class Game extends React.Component {
         </li>
       );
     });
+    if (this.state.movesAscending === false) {
+      moves = moves.reverse();
+    }
     let status;
     if (winner) {
       status = "Winner: " + winner;
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
+    const oppOrder = this.state.movesAscending ? "descending" : "ascending";
+    let toggleButton = (
+      <button
+        className="button toggle-button"
+        onClick={() => this.toggleOrder()}
+      >
+        Toggle moves order to {oppOrder}
+      </button>
+    );
     return (
       <div className="game">
         <div className="game-board">
@@ -115,6 +133,7 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div className="status">{status}</div>
+          <div>{toggleButton}</div>
           <ol>{moves}</ol>
         </div>
       </div>
@@ -149,10 +168,10 @@ root.render(
   <div className="container">
     <Logo />
     <div className="row">
-      <div className="col-md-6">
+      <div className="col-lg-6">
         <Game />
       </div>
-      <div className="col-md-6">
+      <div className="col-lg-6">
         <Description />
       </div>
     </div>
