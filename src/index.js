@@ -129,7 +129,10 @@ function calculateWinner(squares) {
       return squares[a];
     }
   }
-  return null;
+  for (let i = 0; i < 9; i++) {
+    if (squares[i] === null) return null;
+  }
+  return ["Draw"];
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
