@@ -5,8 +5,8 @@
   margin: 15px 0px;
   padding: 15px 0px;
 }
-.footer-links {
-  margin: 5px 0px 0px 12px;
+.icon {
+  padding: 5px 0px 0px 12px;
 }
 .react-logo {
   font-size: 39pt;
@@ -15,5 +15,16 @@
 @media (max-width: 576px) {
   .react-logo-container {
     display: none;
+  }
+}
+@media (max-width: 768px) {
+  .react-logo {
+    font-size: 31pt;
+    text-align: left;
+  }
+}
+@media (max-width: 992px) {
+  .react-logo {
+    text-align: left;
   }
 }

@@ -15,7 +15,7 @@ a {
   color: var(--grey);
 }
 a:hover {
-  color: var(--link-color) !important;
+  color: var(--blue) !important;
   transition-duration: var(--transition);
 }
 .button {
@@ -29,10 +29,6 @@ a:hover {
 }
 .button:focus {
   background-color: var(--background-color);
-}
-ol,
-ul {
-  padding-left: 30px;
 }
 .board-row:after {
   clear: both;
@@ -72,8 +68,9 @@ ul {
   display: flex;
   flex-direction: row;
 }
-.game-info {
-  margin-left: 20px;
+.moves {
+  list-style: none;
+  padding-left: 5px;
 }
 .toggle-button {
   font-size: 11pt;

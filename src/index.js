@@ -18,7 +18,7 @@ function Square(props) {
 class Board extends React.Component {
   renderSquare(i) {
     let changeClass = "square";
-    if (this.props.winnerCells && this.props.winnerCells.indexOf(i) > -1)
+    if (this.props.winningCells && this.props.winningCells.indexOf(i) > -1)
       changeClass = "square winning-square";
     return (
       <Square
@@ -82,7 +82,7 @@ class Game extends React.Component {
     const current = history[this.state.stepNumber];
     const winnerInfo = calculateWinner(current.squares);
     const winner = winnerInfo ? winnerInfo[0] : winnerInfo;
-    const winnerCells = winnerInfo ? winnerInfo.slice(1) : winnerInfo;
+    const winningCells = winnerInfo ? winnerInfo.slice(1) : winnerInfo;
     let moves = history.map((step, move) => {
       const desc = move
         ? "Go to move #" +
@@ -125,17 +125,17 @@ class Game extends React.Component {
     return (
       <div className="container">
         <div className="row game">
-          <div className="col-sm-5">
+          <div className="col-sm-4">
             <Board
               squares={current.squares}
-              winnerCells={winnerCells}
+              winningCells={winningCells}
               onClick={(i) => this.handleClick(i)}
             />
           </div>
-          <div className="col-sm-6 game-info">
+          <div className="col-sm-7 game-info">
             <div className="status">{status}</div>
             <div>{toggleButton}</div>
-            <ol>{moves}</ol>
+            <ul className="moves">{moves}</ul>
           </div>
         </div>
       </div>

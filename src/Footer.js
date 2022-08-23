@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="col-sm-11 footer-links">
           <div>
             <span>
-              <i className="fa-brands fa-github"></i>{" "}
+              <i className="fa-brands fa-github icon"></i>{" "}
             </span>
             <a
               href="https://github.com/Sophie-CR/react-tutorial"
@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
           <div>
             <span>
-              <i className="fa-solid fa-briefcase"></i>{" "}
+              <i className="fa-solid fa-briefcase icon"></i>{" "}
             </span>
             <a
               href="https://phenomenal-empanada-255bed.netlify.app/"
